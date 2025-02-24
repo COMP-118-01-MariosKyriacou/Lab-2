@@ -8,6 +8,14 @@
 
 using namespace std;
 
+// Function prototypes
+void drawHorizontalLine(int, char) ;
+void drawVerticalLine(int, char);
+void drawSquare(int, char);
+void drawSquareFilled(int, char);
+void drawRectangle(int, int, char);
+void drawRectangleFilled(int, int, char);
+
 int main() {
     // Variable declarations
     int choice;
@@ -28,7 +36,6 @@ int main() {
         cout << "I need a choice between 1 and 5. If you want to quit enter 5: ";
         cin >> choice;
     }
-    
     
     return 0;
 }
