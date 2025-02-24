@@ -39,3 +39,27 @@ int main() {
     
     return 0;
 }
+
+void drawHorizontalLine(int length, char ch) {
+    cout << "I am drawHorizontalLine" << endl;
+}
+
+void drawVerticalLine(int height, char ch) {
+    cout << "I am drawVerticalLine" << endl;
+}
+
+void drawSquare(int size, char ch){
+    cout << "I am drawSquare" << endl;
+}
+
+void drawSquareFilled(int size, char ch){
+    cout << "I am drawSquareFilled" << endl;
+}
+
+void drawRectangle(int height, int length, char ch){
+    cout << "I am drawRectangle" << endl;
+}
+
+void drawRectangleFilled(int height, int length, char ch){
+    cout << "I am drawRectangleFilled" << endl;
+}
