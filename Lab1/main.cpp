@@ -177,6 +177,42 @@ void drawSquareFilled(int size, char ch){
 
 // Display the desired rectangle dimensions (i = height, j = length). At the end add a new line
 void drawRectangle(int height, int length, char ch){
+    // Temporary Variables
+    char tempAns;
+    
+    // Prompt user to ask them if they want the square filled or empty
+    cout << "Would you like a filled square (y/n)? ";
+    cin >> tempAns;
+    
+    // Data validation for yes and no
+    while(tempAns != 'y' && tempAns != 'n') {
+        cout << tempAns;
+        cout << "Please enter y or n: ";
+        cin >> tempAns;
+    }
+    
+    // Loop through the size. If it's the first row, draw the whole row. Any other row, draw a character add a space of
+    // length - 1 (setw starts from 1, so we remove 1 from size) and add another character
+    if(tempAns == 'y') drawRectangleFilled(height, length, ch);
+    else {
+        for(int i = 0; i < height; i++) {
+            if(i == 0 || i == height - 1) {
+                for(int j = 0; j < length; j++) {
+                    cout << ch;
+                }
+            } else {
+                cout << ch << setw(length - 1) << ch;
+            }
+            
+            cout << endl;
+        }
+    }
+    
+    cout << endl;
+}
+
+// Draw a filled rectangle with the desired height and length
+void drawRectangleFilled(int height, int length, char ch){
     for(int i = 0; i < height; i++) {
         for(int j = 0; j < length; j++) {
             cout << ch;
@@ -184,12 +220,6 @@ void drawRectangle(int height, int length, char ch){
         
         cout << endl;
     }
-    
-    cout << endl;
-}
-
-void drawRectangleFilled(int height, int length, char ch){
-    cout << "I am drawRectangleFilled" << endl;
 }
 
 // If both of the numbers are > 0 then return true, otherwise it is not valid
