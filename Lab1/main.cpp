@@ -5,6 +5,7 @@
 //  Created by Marios Kyriacou (U244N0037) on 24/02/2025.
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -128,6 +129,42 @@ void drawVerticalLine(int height, char ch) {
 
 // Create a square with the desired size (size = width and height)
 void drawSquare(int size, char ch){
+    char tempAns;
+    
+    // Prompt user to ask them if they want the square filled or empty
+    cout << "Would you like a filled square (y/n)? ";
+    cin >> tempAns;
+    
+    // Data validation for yes and no
+    while(tempAns != 'y' && tempAns != 'n') {
+        cout << tempAns;
+        cout << "Please enter y or n: ";
+        cin >> tempAns;
+    }
+    
+    // If the answer is y then draw a filled square otherwise draw an empty square
+    if(tempAns == 'y') drawSquareFilled(size, ch);
+    else {
+        // Loop through the size. If it's the first row, draw the whole row. Any other row, draw a character add a space of
+        // size - 1 (setw starts from 1, so we remove 1 from size) and add another character
+        for(int i = 0; i < size; i++) {
+            if(i == 0 || i == size - 1) {
+                for(int j = 0; j < size; j++) {
+                    cout << ch;
+                }
+                cout << endl;
+            } else {
+                cout << ch << setw(size - 1) << ch;
+                cout << endl;
+            }
+        }
+        
+        cout << endl;
+    }
+}
+
+// Draw a filled square on the users screen
+void drawSquareFilled(int size, char ch){
     for(int i = 0; i < size; i++) {
         for(int j = 0; j < size; j++) {
             cout << ch;
@@ -136,10 +173,6 @@ void drawSquare(int size, char ch){
     }
     
     cout << endl;
-}
-
-void drawSquareFilled(int size, char ch){
-    cout << "I am drawSquareFilled" << endl;
 }
 
 // Display the desired rectangle dimensions (i = height, j = length). At the end add a new line
