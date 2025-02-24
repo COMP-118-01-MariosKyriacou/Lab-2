@@ -142,8 +142,17 @@ void drawSquareFilled(int size, char ch){
     cout << "I am drawSquareFilled" << endl;
 }
 
+// Display the desired rectangle dimensions (i = height, j = length). At the end add a new line
 void drawRectangle(int height, int length, char ch){
-    cout << "I am drawRectangle" << endl;
+    for(int i = 0; i < height; i++) {
+        for(int j = 0; j < length; j++) {
+            cout << ch;
+        }
+        
+        cout << endl;
+    }
+    
+    cout << endl;
 }
 
 void drawRectangleFilled(int height, int length, char ch){
