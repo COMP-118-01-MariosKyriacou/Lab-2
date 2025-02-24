@@ -29,93 +29,97 @@ int main() {
     // Variable declarations
     int choice;
     char character;
-    bool isValid;
+    bool isValid, isActive = true;
     
-    // User Option Menu
-    cout << "1) Draw a horizontal line" << endl;
-    cout << "2) Draw a vertical line" << endl;
-    cout << "3) Draw a square" << endl;
-    cout << "4) Draw a rectangle" << endl;
-    cout << "5) Draw random shapes" << endl;
-    cout << "6) Quit" << endl;
-    
-    // Prompt user to enter a choice
-    cout << "Enter your option: ";
-    cin >> choice;
-    
-    // Data validation from user. If it isn't valid prompt them to enter a choice until it is valid
-    while(choice > 6 || choice < 1) {
-        cout << "I need a choice between 1 and 6. If you want to quit enter 6: ";
+    // Continuously loop until the user selects to terminate the program
+    do {
+        // User Option Menu
+        cout << "1) Draw a horizontal line" << endl;
+        cout << "2) Draw a vertical line" << endl;
+        cout << "3) Draw a square" << endl;
+        cout << "4) Draw a rectangle" << endl;
+        cout << "5) Draw random shapes" << endl;
+        cout << "6) Quit" << endl;
+        
+        // Prompt user to enter a choice
+        cout << "Enter your option: ";
         cin >> choice;
-    }
-    
-    // Switch function to choose the correct choice
-    switch(choice) {
-        // If the choice is 1 through 3, get the size and the character and validate the size so it's positive
-        // if it isn't, request a positive number until one is entered.
-        case 1:
-        case 2:
-        case 3:
-            // Temporary variable declarations
-            int size;
-            
-            // Prompt user to enter the size and the character
-            cout << "Enter the size and the character you want the shape to be: ";
-            cin >> size >> character;
-            
-            // Validate the size
-            isValid = dataValidation(size, 1);
-            
-            // If it is not valid request a new number, otherwise run the correct function
-            while(!isValid) {
-                cout << "Please enter a size that is positive! ";
-                cin >> size;
+        
+        // Data validation from user. If it isn't valid prompt them to enter a choice until it is valid
+        while(choice > 6 || choice < 1) {
+            cout << "I need a choice between 1 and 6. If you want to quit enter 6: ";
+            cin >> choice;
+        }
+        
+        // Switch function to choose the correct choice
+        switch(choice) {
+            // If the choice is 1 through 3, get the size and the character and validate the size so it's positive
+            // if it isn't, request a positive number until one is entered.
+            case 1:
+            case 2:
+            case 3:
+                // Temporary variable declarations
+                int size;
                 
-                // Validate size again
+                // Prompt user to enter the size and the character
+                cout << "Enter the size and the character you want the shape to be: ";
+                cin >> size >> character;
+                
+                // Validate the size
                 isValid = dataValidation(size, 1);
-            }
-            
-            // Run the corresponding function
-            if(isValid) {
-                if(choice == 1) drawHorizontalLine(size, character);
-                if(choice == 2) drawVerticalLine(size, character);
-                if(choice == 3) drawSquare(size, character, false);
-            }
-            
-            break;
-        case 4:
-            int width, height;
-            
-            cout << "Enter the width, height and the character you want the shape to be: ";
-            cin >> width >> height >> character;
-            
-            isValid = dataValidation(width, height);
-            
-            // If it is not valid request a new number, otherwise run the correct function
-            while(!isValid) {
-                cout << "Please enter a width and height that is positive! ";
-                cin >> width >> height;
                 
-                // Validate size again
+                // If it is not valid request a new number, otherwise run the correct function
+                while(!isValid) {
+                    cout << "Please enter a size that is positive! ";
+                    cin >> size;
+                    
+                    // Validate size again
+                    isValid = dataValidation(size, 1);
+                }
+                
+                // Run the corresponding function
+                if(isValid) {
+                    if(choice == 1) drawHorizontalLine(size, character);
+                    if(choice == 2) drawVerticalLine(size, character);
+                    if(choice == 3) drawSquare(size, character, false);
+                }
+                
+                break;
+            case 4:
+                int width, height;
+                
+                cout << "Enter the width, height and the character you want the shape to be: ";
+                cin >> width >> height >> character;
+                
                 isValid = dataValidation(width, height);
-            }
-            
-            // Run the corresponding function
-            if(isValid) {
-                drawRectangle(width, height, character, false);
-            }
-            
-            break;
-        // Draw a random amount (between 1 and MAX_SHAPES) of random shapes
-        case 5:
-            drawShapes(rand() % MAX_SHAPES + 1);
-            
-            break;
-        // If they want to exit it breaks automatically and shows "Have a good day!"
-        case 6:
-        default:
-            break;
-    }
+                
+                // If it is not valid request a new number, otherwise run the correct function
+                while(!isValid) {
+                    cout << "Please enter a width and height that is positive! ";
+                    cin >> width >> height;
+                    
+                    // Validate size again
+                    isValid = dataValidation(width, height);
+                }
+                
+                // Run the corresponding function
+                if(isValid) {
+                    drawRectangle(width, height, character, false);
+                }
+                
+                break;
+            // Draw a random amount (between 1 and MAX_SHAPES) of random shapes
+            case 5:
+                drawShapes(rand() % MAX_SHAPES + 1);
+                
+                break;
+            // If they want to exit it breaks automatically and shows "Have a good day!"
+            case 6:
+            default:
+                isActive = false;
+                break;
+        }
+    } while(isActive);
     
     cout << "Have a good day!" << endl;
     
