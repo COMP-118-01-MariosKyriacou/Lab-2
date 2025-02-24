@@ -108,8 +108,13 @@ int main() {
     return 0;
 }
 
+// Loop from 0 to the desired length and output the character in one straight line. Once it ends add a new line
 void drawHorizontalLine(int length, char ch) {
-    cout << "I am drawHorizontalLine" << endl;
+    for(int i = 0; i < length; i++) {
+        cout << ch;
+    }
+    
+    cout << endl;
 }
 
 void drawVerticalLine(int height, char ch) {
