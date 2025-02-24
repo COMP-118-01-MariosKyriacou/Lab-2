@@ -126,8 +126,16 @@ void drawVerticalLine(int height, char ch) {
     cout << endl;
 }
 
+// Create a square with the desired size (size = width and height)
 void drawSquare(int size, char ch){
-    cout << "I am drawSquare" << endl;
+    for(int i = 0; i < size; i++) {
+        for(int j = 0; j < size; j++) {
+            cout << ch;
+        }
+        cout << endl;
+    }
+    
+    cout << endl;
 }
 
 void drawSquareFilled(int size, char ch){
