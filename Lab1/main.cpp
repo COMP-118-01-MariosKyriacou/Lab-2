@@ -117,8 +117,13 @@ void drawHorizontalLine(int length, char ch) {
     cout << endl;
 }
 
+// Loop from 0 to the desired height and output a character in each line. Once it ends add a new line
 void drawVerticalLine(int height, char ch) {
-    cout << "I am drawVerticalLine" << endl;
+    for(int i = 0; i < height; i++) {
+        cout << ch << endl;
+    }
+    
+    cout << endl;
 }
 
 void drawSquare(int size, char ch){
