@@ -6,19 +6,26 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
+
+// Global Constants
+#define MAX_SHAPES 10
 
 // Function prototypes
 void drawHorizontalLine(int, char) ;
 void drawVerticalLine(int, char);
-void drawSquare(int, char);
+void drawSquare(int, char, bool);
 void drawSquareFilled(int, char);
-void drawRectangle(int, int, char);
+void drawRectangle(int, int, char, bool);
 void drawRectangleFilled(int, int, char);
 bool dataValidation(int, int);
+void drawShapes(int);
 
 int main() {
+    srand(time(NULL));
     // Variable declarations
     int choice;
     char character;
@@ -29,15 +36,16 @@ int main() {
     cout << "2) Draw a vertical line" << endl;
     cout << "3) Draw a square" << endl;
     cout << "4) Draw a rectangle" << endl;
-    cout << "5) Quit" << endl;
+    cout << "5) Draw random shapes" << endl;
+    cout << "6) Quit" << endl;
     
     // Prompt user to enter a choice
     cout << "Enter your option: ";
     cin >> choice;
     
     // Data validation from user. If it isn't valid prompt them to enter a choice until it is valid
-    while(choice > 5 || choice < 1) {
-        cout << "I need a choice between 1 and 5. If you want to quit enter 5: ";
+    while(choice > 6 || choice < 1) {
+        cout << "I need a choice between 1 and 6. If you want to quit enter 6: ";
         cin >> choice;
     }
     
@@ -71,7 +79,7 @@ int main() {
             if(isValid) {
                 if(choice == 1) drawHorizontalLine(size, character);
                 if(choice == 2) drawVerticalLine(size, character);
-                if(choice == 3) drawSquare(size, character);
+                if(choice == 3) drawSquare(size, character, false);
             }
             
             break;
@@ -94,12 +102,17 @@ int main() {
             
             // Run the corresponding function
             if(isValid) {
-                drawRectangle(width, height, character);
+                drawRectangle(width, height, character, false);
             }
             
             break;
-        // If they want to exit it breaks automatically and shows "Have a good day!"
+        // Draw a random amount (between 1 and MAX_SHAPES) of random shapes
         case 5:
+            drawShapes(rand() % MAX_SHAPES + 1);
+            
+            break;
+        // If they want to exit it breaks automatically and shows "Have a good day!"
+        case 6:
         default:
             break;
     }
@@ -128,18 +141,22 @@ void drawVerticalLine(int height, char ch) {
 }
 
 // Create a square with the desired size (size = width and height)
-void drawSquare(int size, char ch){
+// The boolean filled is so it checks if it wants it filled or not. false if the user hasn't inputted
+// true if it's from the random shape generator so it overlooks it
+void drawSquare(int size, char ch, bool filled){
     char tempAns;
     
-    // Prompt user to ask them if they want the square filled or empty
-    cout << "Would you like a filled square (y/n)? ";
-    cin >> tempAns;
-    
-    // Data validation for yes and no
-    while(tempAns != 'y' && tempAns != 'n') {
-        cout << tempAns;
-        cout << "Please enter y or n: ";
+    if(!filled) {
+        // Prompt user to ask them if they want the square filled or empty
+        cout << "Would you like a filled square (y/n)? ";
         cin >> tempAns;
+        
+        // Data validation for yes and no
+        while(tempAns != 'y' && tempAns != 'n') {
+            cout << tempAns;
+            cout << "Please enter y or n: ";
+            cin >> tempAns;
+        }
     }
     
     // If the answer is y then draw a filled square otherwise draw an empty square
@@ -176,19 +193,23 @@ void drawSquareFilled(int size, char ch){
 }
 
 // Display the desired rectangle dimensions (i = height, j = length). At the end add a new line
-void drawRectangle(int height, int length, char ch){
+// The boolean filled is so it checks if it wants it filled or not. false if the user hasn't inputted
+// true if it's from the random shape generator so it overlooks it
+void drawRectangle(int height, int length, char ch, bool filled){
     // Temporary Variables
     char tempAns;
     
-    // Prompt user to ask them if they want the square filled or empty
-    cout << "Would you like a filled square (y/n)? ";
-    cin >> tempAns;
-    
-    // Data validation for yes and no
-    while(tempAns != 'y' && tempAns != 'n') {
-        cout << tempAns;
-        cout << "Please enter y or n: ";
+    if(!filled) {
+        // Prompt user to ask them if they want the square filled or empty
+        cout << "Would you like a filled square (y/n)? ";
         cin >> tempAns;
+        
+        // Data validation for yes and no
+        while(tempAns != 'y' && tempAns != 'n') {
+            cout << tempAns;
+            cout << "Please enter y or n: ";
+            cin >> tempAns;
+        }
     }
     
     // Loop through the size. If it's the first row, draw the whole row. Any other row, draw a character add a space of
@@ -227,4 +248,42 @@ bool dataValidation(int num1, int num2) {
     if(num1 > 0 && num2 > 0) return true;
     
     return false;
+}
+
+// Generate random numbers and get a random shape with a random width (and height), with a random character, numShapes number of times
+void drawShapes(int numShapes) {
+    // ShapeType: Generate a number from 0 to 5 and add 1 (so range will become 1-6)
+    // ShapeLength && ShapeHeight: Have an offset of 5 and generate a random number between 0-15. Range will become 5-20
+    // ShapeCharacter: Have an offset of 33 and generate a random number between 0 and 93
+    
+    for(int i = 0; i < numShapes; i++) {
+        int shapeType = rand() % 6 + 1, shapeLength = 5 + ( rand() % 16 ), shapeHeight = 5 + ( rand() % 16 ), shapeCharacter = 33 + ( rand() % 94 );
+        
+        switch(shapeType) {
+            case 1:
+                drawHorizontalLine(shapeLength, shapeCharacter);
+                
+                break;
+            case 2:
+                drawVerticalLine(shapeLength, shapeCharacter);
+                
+                break;
+            case 3:
+                drawSquareFilled(shapeLength, shapeCharacter);
+                
+                break;
+            case 4:
+                drawSquare(shapeLength, shapeCharacter, true);
+                
+                break;
+            case 5:
+                drawRectangle(shapeHeight, shapeLength, shapeCharacter, true);
+                
+                break;
+            default:
+                drawRectangleFilled(shapeHeight, shapeLength, shapeCharacter);
+                
+                break;
+        }
+    }
 }
