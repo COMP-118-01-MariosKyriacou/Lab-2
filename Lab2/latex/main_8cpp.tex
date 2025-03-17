@@ -1,0 +1,246 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Shape Generator.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a258c547b1f322860cdb3f4f6f3142961}\label{main_8cpp_a258c547b1f322860cdb3f4f6f3142961} 
+\#define {\bfseries MAX\+\_\+\+SHAPES}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_af2b07da1585c8628384642345f2a681d}{draw\+Horizontal\+Line}} (int, char)
+\item 
+void \mbox{\hyperlink{main_8cpp_a499db29603541cadf746e4e2b833c386}{draw\+Vertical\+Line}} (int, char)
+\item 
+void \mbox{\hyperlink{main_8cpp_abc6299c844cf7cf5a08eabfb6d1b21e6}{draw\+Square}} (int, char, bool)
+\item 
+void \mbox{\hyperlink{main_8cpp_af18fc037bc0ac5b4216aab37f081248a}{draw\+Square\+Filled}} (int, char)
+\item 
+void \mbox{\hyperlink{main_8cpp_ad12434abe67fba752644ec8b9704b51f}{draw\+Rectangle}} (int, int, char, bool)
+\item 
+void \mbox{\hyperlink{main_8cpp_a6f7abef6dd8f82e7060485914a2e1d71}{draw\+Rectangle\+Filled}} (int, int, char)
+\item 
+bool \mbox{\hyperlink{main_8cpp_a3eeef288f46f300c2f18548419d2a016}{data\+Validation}} (int, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_a25447993fd4a7c16219793bd5428b519}{draw\+Shapes}} (int)
+\item 
+void \mbox{\hyperlink{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}{initialize\+Arrays}} (int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, char\mbox{[}$\,$\mbox{]}, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_ac594426f7f32a84b0153fc7f7283249e}{draw\+Arrays}} (int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, char\mbox{[}$\,$\mbox{]}, int)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shape Generator. 
+
+In this program we prompt the user to enter an option they want from a menu and then we generate the desired shape for the user. If they want random shapes, then we generate an x amount of random shapes. \begin{DoxyAuthor}{Author}
+Marios Kyriacou 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/2025 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU Public License. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a3eeef288f46f300c2f18548419d2a016}\index{main.cpp@{main.cpp}!dataValidation@{dataValidation}}
+\index{dataValidation@{dataValidation}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dataValidation()}{dataValidation()}}
+{\footnotesize\ttfamily \label{main_8cpp_a3eeef288f46f300c2f18548419d2a016} 
+bool data\+Validation (\begin{DoxyParamCaption}\item[{const int}]{num1}{, }\item[{const int}]{num2}{}\end{DoxyParamCaption})}
+
+This function validates the data entered by the user in order to check if the numbers they have entered are more than 0 (because shapes require a positive value) 
+\begin{DoxyParams}{Parameters}
+{\em num1} & The num1 variable is either the height or the length of the shape \\
+\hline
+{\em num2} & The num2 variable is either the height or the length of the shape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It will return {\ttfamily true} if both the numbers are \texorpdfstring{$>$}{>}0 and {\ttfamily false} if either number is \texorpdfstring{$<$}{<}0 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ac594426f7f32a84b0153fc7f7283249e}\index{main.cpp@{main.cpp}!drawArrays@{drawArrays}}
+\index{drawArrays@{drawArrays}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawArrays()}{drawArrays()}}
+{\footnotesize\ttfamily \label{main_8cpp_ac594426f7f32a84b0153fc7f7283249e} 
+void draw\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{shape\+Len}{\mbox{[}$\,$\mbox{]}, }\item[{char}]{shape\+Ch}{\mbox{[}$\,$\mbox{]}, }\item[{const int}]{arr\+Size}{}\end{DoxyParamCaption})}
+
+In this function, we will draw the values that have been added to the variables in the {\ttfamily \doxylink{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}{initialize\+Arrays()}} function 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & The shape\+Ty variable has random values from 1-\/6, arr\+Size number of times, to indicate which shape type to print \\
+\hline
+{\em shape\+Len} & The shape\+Len variable has random values from 1-\/20, arr\+Size number of times, to see the length of the shape \\
+\hline
+{\em shape\+Ch} & The shape\+Ch variable has random values (ASCII) from 33-\/126, arr\+Size number of times, in order to show it as the character of the shape \\
+\hline
+{\em arr\+Size} & The arr\+Size variable is a random value between 1-\/10 that will be the amount of values that will be generated for the arrays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_af2b07da1585c8628384642345f2a681d}\index{main.cpp@{main.cpp}!drawHorizontalLine@{drawHorizontalLine}}
+\index{drawHorizontalLine@{drawHorizontalLine}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawHorizontalLine()}{drawHorizontalLine()}}
+{\footnotesize\ttfamily \label{main_8cpp_af2b07da1585c8628384642345f2a681d} 
+void draw\+Horizontal\+Line (\begin{DoxyParamCaption}\item[{const int}]{length}{, }\item[{const char}]{ch}{}\end{DoxyParamCaption})}
+
+Loop from 0 to the desired length and output the character in one straight line. Once it ends add a new line 
+\begin{DoxyParams}{Parameters}
+{\em length} & The length variable is the desired length of the line that the user wants to output \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ad12434abe67fba752644ec8b9704b51f}\index{main.cpp@{main.cpp}!drawRectangle@{drawRectangle}}
+\index{drawRectangle@{drawRectangle}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawRectangle()}{drawRectangle()}}
+{\footnotesize\ttfamily \label{main_8cpp_ad12434abe67fba752644ec8b9704b51f} 
+void draw\+Rectangle (\begin{DoxyParamCaption}\item[{const int}]{height}{, }\item[{const int}]{length}{, }\item[{const char}]{ch}{, }\item[{const bool}]{filled}{}\end{DoxyParamCaption})}
+
+Display the desired rectangle dimensions (i = height, j = length). At the end add a new line. The boolean will be {\ttfamily false} if it wasn\textquotesingle{}t called by the user, hence the shape will not be filled. If the function gets called from the random shape generator then it gets the default state of not-\/filled. 
+\begin{DoxyParams}{Parameters}
+{\em height} & The height variable is the height of the rectangle \\
+\hline
+{\em length} & The length variable is the length of the rectangle \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+{\em filled} & The filled variable is in order for us to know if the function was called by a user or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a6f7abef6dd8f82e7060485914a2e1d71}\index{main.cpp@{main.cpp}!drawRectangleFilled@{drawRectangleFilled}}
+\index{drawRectangleFilled@{drawRectangleFilled}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawRectangleFilled()}{drawRectangleFilled()}}
+{\footnotesize\ttfamily \label{main_8cpp_a6f7abef6dd8f82e7060485914a2e1d71} 
+void draw\+Rectangle\+Filled (\begin{DoxyParamCaption}\item[{const int}]{height}{, }\item[{const int}]{length}{, }\item[{const char}]{ch}{}\end{DoxyParamCaption})}
+
+Draw a filled rectangle with the desired height and length 
+\begin{DoxyParams}{Parameters}
+{\em height} & The height variable is the height of the rectangle \\
+\hline
+{\em length} & The length variable is the length of the rectangle \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a25447993fd4a7c16219793bd5428b519}\index{main.cpp@{main.cpp}!drawShapes@{drawShapes}}
+\index{drawShapes@{drawShapes}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawShapes()}{drawShapes()}}
+{\footnotesize\ttfamily \label{main_8cpp_a25447993fd4a7c16219793bd5428b519} 
+void draw\+Shapes (\begin{DoxyParamCaption}\item[{const int}]{num\+Shapes}{}\end{DoxyParamCaption})}
+
+Generate random numbers and get a random shape with a random width (and height), with a random character, num\+Shapes number of times. For each shape\+Type call the correct function using a switch statement. 
+\begin{DoxyParams}{Parameters}
+{\em num\+Shapes} & The num\+Shapes variable is the amount of random shapes that gets generated in the main function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_abc6299c844cf7cf5a08eabfb6d1b21e6}\index{main.cpp@{main.cpp}!drawSquare@{drawSquare}}
+\index{drawSquare@{drawSquare}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawSquare()}{drawSquare()}}
+{\footnotesize\ttfamily \label{main_8cpp_abc6299c844cf7cf5a08eabfb6d1b21e6} 
+void draw\+Square (\begin{DoxyParamCaption}\item[{const int}]{size}{, }\item[{const char}]{ch}{, }\item[{const bool}]{filled}{}\end{DoxyParamCaption})}
+
+Create a square with the desired size. The boolean filled is so it checks if it wants it filled or not. The boolean will be {\ttfamily false} if it wasn\textquotesingle{}t called by the user, hence the shape will not be filled. If the function gets called from the random shape generator then it gets the default state of not-\/filled. 
+\begin{DoxyParams}{Parameters}
+{\em size} & The size variable is both the width and height of the square \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+{\em filled} & Checks if the function has been called from the random number generator or from the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_af18fc037bc0ac5b4216aab37f081248a}\index{main.cpp@{main.cpp}!drawSquareFilled@{drawSquareFilled}}
+\index{drawSquareFilled@{drawSquareFilled}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawSquareFilled()}{drawSquareFilled()}}
+{\footnotesize\ttfamily \label{main_8cpp_af18fc037bc0ac5b4216aab37f081248a} 
+void draw\+Square\+Filled (\begin{DoxyParamCaption}\item[{const int}]{size}{, }\item[{const char}]{ch}{}\end{DoxyParamCaption})}
+
+Draw a filled square on the users screen 
+\begin{DoxyParams}{Parameters}
+{\em size} & The size variable is both the width and height of the square \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a499db29603541cadf746e4e2b833c386}\index{main.cpp@{main.cpp}!drawVerticalLine@{drawVerticalLine}}
+\index{drawVerticalLine@{drawVerticalLine}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawVerticalLine()}{drawVerticalLine()}}
+{\footnotesize\ttfamily \label{main_8cpp_a499db29603541cadf746e4e2b833c386} 
+void draw\+Vertical\+Line (\begin{DoxyParamCaption}\item[{const int}]{height}{, }\item[{const char}]{ch}{}\end{DoxyParamCaption})}
+
+Loop from 0 to the desired height and output a character in each line. Once it ends add a new line 
+\begin{DoxyParams}{Parameters}
+{\em height} & The height variable is the desired length of the line that the user wants to output \\
+\hline
+{\em ch} & The ch variable is the desired character that they want the shape to have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}\index{main.cpp@{main.cpp}!initializeArrays@{initializeArrays}}
+\index{initializeArrays@{initializeArrays}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeArrays()}{initializeArrays()}}
+{\footnotesize\ttfamily \label{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3} 
+void initialize\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{shape\+Len}{\mbox{[}$\,$\mbox{]}, }\item[{char}]{shape\+Ch}{\mbox{[}$\,$\mbox{]}, }\item[{const int}]{arr\+Size}{}\end{DoxyParamCaption})}
+
+This function will initialize the arrays with random values 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & The shape\+Ty generates a random value from 1-\/6, arr\+Size number of times, to indicate which shape type to print \\
+\hline
+{\em shape\+Len} & The shape\+Len variable generates a random value from 1-\/20, arr\+Size number of times, to see the length of the shape \\
+\hline
+{\em shape\+Ch} & The shape\+Ch variable generates a random value (ASCII) from 33-\/126, arr\+Size number of times, in order to show it as the character of the shape \\
+\hline
+{\em arr\+Size} & The arr\+Size variable is a random value between 1-\/10 that will be the amount of values that will be generated for the arrays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+We show the menu to the user, get the option that the user wants and then prompt them to enter the desired data \begin{DoxyReturn}{Returns}
+Returns 0 
+\end{DoxyReturn}

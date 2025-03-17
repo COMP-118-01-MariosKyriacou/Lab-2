@@ -27,16 +27,18 @@ void drawRectangle(int, int, char, bool);
 void drawRectangleFilled(int, int, char);
 bool dataValidation(int, int);
 void drawShapes(int);
+void initializeArrays(int[], int[], char[], int);
+void drawArrays(int[], int[], char[], int);
 
-/*
+/**
  * We show the menu to the user, get the option that the user wants and then prompt them to enter the desired data
  * @return Returns 0
  */
 int main() {
     srand(time(NULL));
     // Variable declarations
-    int choice;
-    char character;
+    int choice, arrSize, shapeTy[MAX_SHAPES], shapeLen[MAX_SHAPES];
+    char character, shapeCh[MAX_SHAPES];
     bool isValid, isActive = true;
     
     // Continuously loop until the user selects to terminate the program
@@ -47,19 +49,20 @@ int main() {
         cout << "3) Draw a square" << endl;
         cout << "4) Draw a rectangle" << endl;
         cout << "5) Draw random shapes" << endl;
-        cout << "6) Quit" << endl;
+        cout << "6) Random Shapes (w/ 2 functions)" << endl;
+        cout << "7) Quit" << endl;
         
         // Prompt user to enter a choice
         cout << "Enter your option: ";
         cin >> choice;
         
         // Data validation from user. If it isn't valid prompt them to enter a choice until it is valid
-        while(choice > 6 || choice < 1) {
+        while(choice > 7 || choice < 1) {
             cout << "I need a choice between 1 and 6. If you want to quit enter 6: ";
             cin >> choice;
         }
         
-        assert(choice <= 6 && choice >= 1);
+        assert(choice <= 7 && choice >= 1);
         
         // Switch function to choose the correct choice
         switch(choice) {
@@ -123,8 +126,16 @@ int main() {
                 drawShapes(rand() % MAX_SHAPES + 1);
                 
                 break;
-            // If they want to exit it breaks automatically and shows "Have a good day!"
+            // Call the initializeArray() function and pass the arrSize function
             case 6:
+                // Random number from 1-10
+                arrSize = rand() % 10 + 1;
+                
+                initializeArrays(shapeTy, shapeLen, shapeCh, arrSize);
+                
+                break;
+            // If they want to exit it breaks automatically and shows "Have a good day!"
+            case 7:
             default:
                 isActive = false;
                 break;
@@ -351,6 +362,70 @@ void drawShapes(const int numShapes) {
                 break;
             default:
                 drawRectangleFilled(shapeHeight, shapeLength, shapeCharacter);
+                
+                break;
+        }
+    }
+}
+
+/**
+ * This function will initialize the arrays with random values
+ * @param shapeTy The shapeTy generates a random value from 1-6, arrSize number of times, to indicate which shape type to print
+ * @param shapeLen The shapeLen variable generates a random value from 1-20, arrSize number of times, to see the length of the shape
+ * @param shapeCh The shapeCh variable generates a random value (ASCII) from 33-126, arrSize number of times, in order to show it as the character of the shape
+ * @param arrSize The arrSize variable is a random value between 1-10 that will be the amount of values that will be generated for the arrays
+ * @return No return value
+*/
+void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize) {
+    assert(arrSize >= 1 && arrSize <= 10);
+    
+    for(int i = 0; i < arrSize; i++) {
+        shapeTy[i] = rand() % 6 + 1;
+        assert(shapeTy[i] >= 1 && shapeTy[i] <= 6);
+        
+        shapeLen[i] = rand() % 20 + 1;
+        assert(shapeLen[i] >= 1 && shapeLen[i] <= 20);
+        
+        shapeCh[i] = (char)(33 + (rand() % 94));
+        assert(shapeCh[i] >= 33 && shapeCh[i] <= 126);
+    }
+    
+    drawArrays(shapeTy, shapeLen, shapeCh, arrSize);
+}
+
+/**
+ * In this function, we will draw the values that have been added to the variables in the <code>initializeArrays()</code> function
+ * @param shapeTy The shapeTy variable has random values from 1-6, arrSize number of times, to indicate which shape type to print
+ * @param shapeLen The shapeLen variable has random values from 1-20, arrSize number of times, to see the length of the shape
+ * @param shapeCh The shapeCh variable has random values (ASCII) from 33-126, arrSize number of times, in order to show it as the character of the shape
+ * @param arrSize The arrSize variable is a random value between 1-10 that will be the amount of values that will be generated for the arrays
+ * @return No return value
+*/
+void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize) {
+    for(int i = 0; i < arrSize; i++) {
+        switch(shapeTy[i]) {
+            case 1:
+                drawHorizontalLine(shapeLen[i], shapeCh[i]);
+                
+                break;
+            case 2:
+                drawVerticalLine(shapeLen[i], shapeCh[i]);
+                
+                break;
+            case 3:
+                drawSquareFilled(shapeLen[i], shapeCh[i]);
+                
+                break;
+            case 4:
+                drawSquare(shapeLen[i], shapeCh[i], true);
+                
+                break;
+            case 5:
+                drawRectangle(shapeLen[i] / 2, shapeLen[i], shapeCh[i], true);
+                
+                break;
+            default:
+                drawRectangleFilled(shapeLen[i] / 2, shapeLen[i], shapeCh[i]);
                 
                 break;
         }
