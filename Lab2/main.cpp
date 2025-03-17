@@ -32,6 +32,10 @@ void drawRectangleFilled(int, int, char);
 bool dataValidation(int, int);
 void drawShapes(int);
 
+/*
+ * We show the menu to the user, get the option that the user wants and then prompt them to enter the desired data
+ * @return Returns 0
+ */
 int main() {
     srand(time(NULL));
     // Variable declarations
