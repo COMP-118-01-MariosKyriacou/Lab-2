@@ -35,8 +35,11 @@ bool \mbox{\hyperlink{main_8cpp_a3eeef288f46f300c2f18548419d2a016}{data\+Validat
 \item 
 void \mbox{\hyperlink{main_8cpp_a25447993fd4a7c16219793bd5428b519}{draw\+Shapes}} (int)
 \item 
-\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
-int {\bfseries main} ()
+void \mbox{\hyperlink{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}{initialize\+Arrays}} (int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, char\mbox{[}$\,$\mbox{]}, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_ac594426f7f32a84b0153fc7f7283249e}{draw\+Arrays}} (int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, char\mbox{[}$\,$\mbox{]}, int)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \end{DoxyCompactItemize}
 
 
@@ -73,6 +76,26 @@ This function validates the data entered by the user in order to check if the nu
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 It will return {\ttfamily true} if both the numbers are \texorpdfstring{$>$}{>}0 and {\ttfamily false} if either number is \texorpdfstring{$<$}{<}0 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ac594426f7f32a84b0153fc7f7283249e}\index{main.cpp@{main.cpp}!drawArrays@{drawArrays}}
+\index{drawArrays@{drawArrays}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawArrays()}{drawArrays()}}
+{\footnotesize\ttfamily \label{main_8cpp_ac594426f7f32a84b0153fc7f7283249e} 
+void draw\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{shape\+Len}{\mbox{[}$\,$\mbox{]}, }\item[{char}]{shape\+Ch}{\mbox{[}$\,$\mbox{]}, }\item[{const int}]{arr\+Size}{}\end{DoxyParamCaption})}
+
+In this function, we will draw the values that have been added to the variables in the {\ttfamily \doxylink{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}{initialize\+Arrays()}} function 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & The shape\+Ty variable has random values from 1-\/6, arr\+Size number of times, to indicate which shape type to print \\
+\hline
+{\em shape\+Len} & The shape\+Len variable has random values from 1-\/20, arr\+Size number of times, to see the length of the shape \\
+\hline
+{\em shape\+Ch} & The shape\+Ch variable has random values (ASCII) from 33-\/126, arr\+Size number of times, in order to show it as the character of the shape \\
+\hline
+{\em arr\+Size} & The arr\+Size variable is a random value between 1-\/10 that will be the amount of values that will be generated for the arrays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
 \end{DoxyReturn}
 \Hypertarget{main_8cpp_af2b07da1585c8628384642345f2a681d}\index{main.cpp@{main.cpp}!drawHorizontalLine@{drawHorizontalLine}}
 \index{drawHorizontalLine@{drawHorizontalLine}!main.cpp@{main.cpp}}
@@ -191,4 +214,33 @@ Loop from 0 to the desired height and output a character in each line. Once it e
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3}\index{main.cpp@{main.cpp}!initializeArrays@{initializeArrays}}
+\index{initializeArrays@{initializeArrays}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeArrays()}{initializeArrays()}}
+{\footnotesize\ttfamily \label{main_8cpp_a7f7c66dfba00014578199d7dff7af1c3} 
+void initialize\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{shape\+Len}{\mbox{[}$\,$\mbox{]}, }\item[{char}]{shape\+Ch}{\mbox{[}$\,$\mbox{]}, }\item[{const int}]{arr\+Size}{}\end{DoxyParamCaption})}
+
+This function will initialize the arrays with random values 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & The shape\+Ty generates a random value from 1-\/6, arr\+Size number of times, to indicate which shape type to print \\
+\hline
+{\em shape\+Len} & The shape\+Len variable generates a random value from 1-\/20, arr\+Size number of times, to see the length of the shape \\
+\hline
+{\em shape\+Ch} & The shape\+Ch variable generates a random value (ASCII) from 33-\/126, arr\+Size number of times, in order to show it as the character of the shape \\
+\hline
+{\em arr\+Size} & The arr\+Size variable is a random value between 1-\/10 that will be the amount of values that will be generated for the arrays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+No return value 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+We show the menu to the user, get the option that the user wants and then prompt them to enter the desired data \begin{DoxyReturn}{Returns}
+Returns 0 
 \end{DoxyReturn}
