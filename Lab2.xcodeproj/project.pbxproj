@@ -19,13 +19,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13CB52F42D6C59A00004AAB0 /* Lab1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab1; sourceTree = BUILT_PRODUCTS_DIR; };
+		13CB52F42D6C59A00004AAB0 /* Lab2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab2; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		13CB52F62D6C59A00004AAB0 /* Lab1 */ = {
+		13CB52F62D6C59A00004AAB0 /* Lab2 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Lab1;
+			path = Lab2;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -44,7 +44,7 @@
 		13CB52EB2D6C599F0004AAB0 = {
 			isa = PBXGroup;
 			children = (
-				13CB52F62D6C59A00004AAB0 /* Lab1 */,
+				13CB52F62D6C59A00004AAB0 /* Lab2 */,
 				13CB52F52D6C59A00004AAB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,7 +52,7 @@
 		13CB52F52D6C59A00004AAB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13CB52F42D6C59A00004AAB0 /* Lab1 */,
+				13CB52F42D6C59A00004AAB0 /* Lab2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,9 +60,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13CB52F32D6C599F0004AAB0 /* Lab1 */ = {
+		13CB52F32D6C599F0004AAB0 /* Lab2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13CB52FB2D6C59A00004AAB0 /* Build configuration list for PBXNativeTarget "Lab1" */;
+			buildConfigurationList = 13CB52FB2D6C59A00004AAB0 /* Build configuration list for PBXNativeTarget "Lab2" */;
 			buildPhases = (
 				13CB52F02D6C599F0004AAB0 /* Sources */,
 				13CB52F12D6C599F0004AAB0 /* Frameworks */,
@@ -73,13 +73,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				13CB52F62D6C59A00004AAB0 /* Lab1 */,
+				13CB52F62D6C59A00004AAB0 /* Lab2 */,
 			);
-			name = Lab1;
+			name = Lab2;
 			packageProductDependencies = (
 			);
 			productName = Lab1;
-			productReference = 13CB52F42D6C59A00004AAB0 /* Lab1 */;
+			productReference = 13CB52F42D6C59A00004AAB0 /* Lab2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 13CB52EF2D6C599F0004AAB0 /* Build configuration list for PBXProject "Lab1" */;
+			buildConfigurationList = 13CB52EF2D6C599F0004AAB0 /* Build configuration list for PBXProject "Lab2" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -110,7 +110,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13CB52F32D6C599F0004AAB0 /* Lab1 */,
+				13CB52F32D6C599F0004AAB0 /* Lab2 */,
 			);
 		};
 /* End PBXProject section */
@@ -260,7 +260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13CB52EF2D6C599F0004AAB0 /* Build configuration list for PBXProject "Lab1" */ = {
+		13CB52EF2D6C599F0004AAB0 /* Build configuration list for PBXProject "Lab2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13CB52F92D6C59A00004AAB0 /* Debug */,
@@ -269,7 +269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13CB52FB2D6C59A00004AAB0 /* Build configuration list for PBXNativeTarget "Lab1" */ = {
+		13CB52FB2D6C59A00004AAB0 /* Build configuration list for PBXNativeTarget "Lab2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13CB52FC2D6C59A00004AAB0 /* Debug */,
