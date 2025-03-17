@@ -151,7 +151,6 @@ int main() {
   * Loop from 0 to the desired length and output the character in one straight line. Once it ends add a new line
   * @param length The length variable is the desired length of the line that the user wants to output
   * @param ch The ch variable is the desired character that they want the shape to have
-  * @return No return value
  */
 void drawHorizontalLine(const int length, const char ch) {
     assert(length > 0);
@@ -167,7 +166,6 @@ void drawHorizontalLine(const int length, const char ch) {
   * Loop from 0 to the desired height and output a character in each line. Once it ends add a new line
   * @param height The height variable is the desired length of the line that the user wants to output
   * @param ch The ch variable is the desired character that they want the shape to have
-  * @return No return value
  */
 void drawVerticalLine(const int height, const char ch) {
     assert(height > 0);
@@ -184,7 +182,6 @@ void drawVerticalLine(const int height, const char ch) {
   * @param size The size variable is both the width and height of the square
   * @param ch The ch variable is the desired character that they want the shape to have
   * @param filled Checks if the function has been called from the random number generator or from the user
-  * @return No return value
  */
 void drawSquare(const int size, const char ch, const bool filled){
     assert(size > 0);
@@ -229,7 +226,6 @@ void drawSquare(const int size, const char ch, const bool filled){
   * Draw a filled square on the users screen
   * @param size The size variable is both the width and height of the square
   * @param ch The ch variable is the desired character that they want the shape to have
-  * @return No return value
  */
 void drawSquareFilled(const int size, const char ch){
     assert(size > 0);
@@ -250,7 +246,6 @@ void drawSquareFilled(const int size, const char ch){
   * @param length The length variable is the length of the rectangle
   * @param ch The ch variable is the desired character that they want the shape to have
   * @param filled The filled variable is in order for us to know if the function was called by a user or not
-  * @return No return value
  */
 void drawRectangle(const int height, const int length, const char ch, const bool filled){
     assert(height > 0 && length > 0);
@@ -296,7 +291,6 @@ void drawRectangle(const int height, const int length, const char ch, const bool
   * @param height The height variable is the height of the rectangle
   * @param length The length variable is the length of the rectangle
   * @param ch The ch variable is the desired character that they want the shape to have
-  * @return No return value
  */
 void drawRectangleFilled(const int height, const int length, const char ch){
     assert(height > 0 && length > 0);
@@ -327,7 +321,6 @@ bool dataValidation(const int num1, const int num2) {
 /**
   * Generate random numbers and get a random shape with a random width (and height), with a random character, numShapes number of times. For each shapeType call the correct function using a switch statement.
   * @param numShapes The numShapes variable is the amount of random shapes that gets generated in the main function
-  * @return No return value
  */
 void drawShapes(const int numShapes) {
     assert(numShapes > 0 && numShapes <= 10);
@@ -374,7 +367,6 @@ void drawShapes(const int numShapes) {
  * @param shapeLen The shapeLen variable generates a random value from 1-20, arrSize number of times, to see the length of the shape
  * @param shapeCh The shapeCh variable generates a random value (ASCII) from 33-126, arrSize number of times, in order to show it as the character of the shape
  * @param arrSize The arrSize variable is a random value between 1-10 that will be the amount of values that will be generated for the arrays
- * @return No return value
 */
 void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize) {
     assert(arrSize >= 1 && arrSize <= 10);
@@ -399,7 +391,6 @@ void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int a
  * @param shapeLen The shapeLen variable has random values from 1-20, arrSize number of times, to see the length of the shape
  * @param shapeCh The shapeCh variable has random values (ASCII) from 33-126, arrSize number of times, in order to show it as the character of the shape
  * @param arrSize The arrSize variable is a random value between 1-10 that will be the amount of values that will be generated for the arrays
- * @return No return value
 */
 void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize) {
     for(int i = 0; i < arrSize; i++) {

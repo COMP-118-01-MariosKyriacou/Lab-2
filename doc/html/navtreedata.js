@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Lab2", "index.html", [
+  [ "Lab 2 - COMP-118-01 - Marios Kyriacou", "index.html", [
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -37,7 +37,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"files.html"
+"dir_7816ed0a726626cbaf4b061165d848c1.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
