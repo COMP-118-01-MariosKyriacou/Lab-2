@@ -3,6 +3,14 @@
 //  Create a menu where it gives the user options in order to draw certain shapes
 //
 //  Created by Marios Kyriacou (U244N0037) on 24/02/2025.
+/** \file main.cpp
+ *  \brief Shape Generator
+ *  \details In this program we prompt the user to enter an option they want from a menu and then we generate the desired shape for the user. If they want random shapes, then we generate an x amount of random shapes.
+ *  \author Marios Kyriacou
+ *  \version 0.1
+ *  \date 2025-2025
+ *  \copyright GNU Public License.
+ */
 
 #include <iostream>
 #include <iomanip>
@@ -126,8 +134,13 @@ int main() {
     return 0;
 }
 
-// Loop from 0 to the desired length and output the character in one straight line. Once it ends add a new line
-void drawHorizontalLine(int length, char ch) {
+/**
+  * Loop from 0 to the desired length and output the character in one straight line. Once it ends add a new line
+  * @param length The length variable is the desired length of the line that the user wants to output
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @return No return value
+ */
+void drawHorizontalLine(const int length, const char ch) {
     for(int i = 0; i < length; i++) {
         cout << ch;
     }
@@ -135,8 +148,13 @@ void drawHorizontalLine(int length, char ch) {
     cout << endl;
 }
 
-// Loop from 0 to the desired height and output a character in each line. Once it ends add a new line
-void drawVerticalLine(int height, char ch) {
+/**
+  * Loop from 0 to the desired height and output a character in each line. Once it ends add a new line
+  * @param height The height variable is the desired length of the line that the user wants to output
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @return No return value
+ */
+void drawVerticalLine(const int height, const char ch) {
     for(int i = 0; i < height; i++) {
         cout << ch << endl;
     }
@@ -144,10 +162,14 @@ void drawVerticalLine(int height, char ch) {
     cout << endl;
 }
 
-// Create a square with the desired size (size = width and height)
-// The boolean filled is so it checks if it wants it filled or not. false if the user hasn't inputted
-// true if it's from the random shape generator so it overlooks it
-void drawSquare(int size, char ch, bool filled){
+/**
+  * Create a square with the desired size. The boolean filled is so it checks if it wants it filled or not. The boolean will be <code>false</code> if it wasn't called by the user, hence the shape will not be filled. If the function gets called from the random shape generator then it gets the default state of not-filled.
+  * @param size The size variable is both the width and height of the square
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @param filled Checks if the function has been called from the random number generator or from the user
+  * @return No return value
+ */
+void drawSquare(const int size, const char ch, const bool filled){
     char tempAns;
     
     if(!filled) {
@@ -184,8 +206,13 @@ void drawSquare(int size, char ch, bool filled){
     }
 }
 
-// Draw a filled square on the users screen
-void drawSquareFilled(int size, char ch){
+/**
+  * Draw a filled square on the users screen
+  * @param size The size variable is both the width and height of the square
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @return No return value
+ */
+void drawSquareFilled(const int size, const char ch){
     for(int i = 0; i < size; i++) {
         for(int j = 0; j < size; j++) {
             cout << ch;
@@ -196,10 +223,15 @@ void drawSquareFilled(int size, char ch){
     cout << endl;
 }
 
-// Display the desired rectangle dimensions (i = height, j = length). At the end add a new line
-// The boolean filled is so it checks if it wants it filled or not. false if the user hasn't inputted
-// true if it's from the random shape generator so it overlooks it
-void drawRectangle(int height, int length, char ch, bool filled){
+/**
+  * Display the desired rectangle dimensions (i = height, j = length). At the end add a new line. The boolean will be <code>false</code> if it wasn't called by the user, hence the shape will not be filled. If the function gets called from the random shape generator then it gets the default state of not-filled.
+  * @param height The height variable is the height of the rectangle
+  * @param length The length variable is the length of the rectangle
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @param filled The filled variable is in order for us to know if the function was called by a user or not
+  * @return No return value
+ */
+void drawRectangle(const int height, const int length, const char ch, const bool filled){
     // Temporary Variables
     char tempAns;
     
@@ -236,8 +268,14 @@ void drawRectangle(int height, int length, char ch, bool filled){
     cout << endl;
 }
 
-// Draw a filled rectangle with the desired height and length
-void drawRectangleFilled(int height, int length, char ch){
+/**
+  * Draw a filled rectangle with the desired height and length
+  * @param height The height variable is the height of the rectangle
+  * @param length The length variable is the length of the rectangle
+  * @param ch The ch variable is the desired character that they want the shape to have
+  * @return No return value
+ */
+void drawRectangleFilled(const int height, const int length, const char ch){
     for(int i = 0; i < height; i++) {
         for(int j = 0; j < length; j++) {
             cout << ch;
@@ -247,15 +285,24 @@ void drawRectangleFilled(int height, int length, char ch){
     }
 }
 
-// If both of the numbers are > 0 then return true, otherwise it is not valid
-bool dataValidation(int num1, int num2) {
+/**
+  * This function validates the data entered by the user in order to check if the numbers they have entered are more than 0 (because shapes require a positive value)
+  * @param num1 The num1 variable is either the height or the length of the shape
+  * @param num2 The num2 variable is either the height or the length of the shape
+  * @return It will return <code>true</code> if both the numbers are >0 and <code>false</code> if either number is <0
+ */
+bool dataValidation(const int num1, const int num2) {
     if(num1 > 0 && num2 > 0) return true;
     
     return false;
 }
 
-// Generate random numbers and get a random shape with a random width (and height), with a random character, numShapes number of times
-void drawShapes(int numShapes) {
+/**
+  * Generate random numbers and get a random shape with a random width (and height), with a random character, numShapes number of times. For each shapeType call the correct function using a switch statement.
+  * @param numShapes The numShapes variable is the amount of random shapes that gets generated in the main function
+  * @return No return value
+ */
+void drawShapes(const int numShapes) {
     // ShapeType: Generate a number from 0 to 5 and add 1 (so range will become 1-6)
     // ShapeLength && ShapeHeight: Have an offset of 5 and generate a random number between 0-15. Range will become 5-20
     // ShapeCharacter: Have an offset of 33 and generate a random number between 0 and 93
