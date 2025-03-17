@@ -1,8 +1,3 @@
-//
-//  Lab 1 Exercise: The Shape Menu
-//  Create a menu where it gives the user options in order to draw certain shapes
-//
-//  Created by Marios Kyriacou (U244N0037) on 24/02/2025.
 /** \file main.cpp
  *  \brief Shape Generator
  *  \details In this program we prompt the user to enter an option they want from a menu and then we generate the desired shape for the user. If they want random shapes, then we generate an x amount of random shapes.
@@ -16,6 +11,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <cassert>
 
 using namespace std;
 
@@ -62,6 +58,8 @@ int main() {
             cout << "I need a choice between 1 and 6. If you want to quit enter 6: ";
             cin >> choice;
         }
+        
+        assert(choice <= 6 && choice >= 1);
         
         // Switch function to choose the correct choice
         switch(choice) {
@@ -145,6 +143,8 @@ int main() {
   * @return No return value
  */
 void drawHorizontalLine(const int length, const char ch) {
+    assert(length > 0);
+    
     for(int i = 0; i < length; i++) {
         cout << ch;
     }
@@ -159,6 +159,8 @@ void drawHorizontalLine(const int length, const char ch) {
   * @return No return value
  */
 void drawVerticalLine(const int height, const char ch) {
+    assert(height > 0);
+    
     for(int i = 0; i < height; i++) {
         cout << ch << endl;
     }
@@ -174,6 +176,8 @@ void drawVerticalLine(const int height, const char ch) {
   * @return No return value
  */
 void drawSquare(const int size, const char ch, const bool filled){
+    assert(size > 0);
+    
     char tempAns;
     
     if(!filled) {
@@ -217,6 +221,8 @@ void drawSquare(const int size, const char ch, const bool filled){
   * @return No return value
  */
 void drawSquareFilled(const int size, const char ch){
+    assert(size > 0);
+    
     for(int i = 0; i < size; i++) {
         for(int j = 0; j < size; j++) {
             cout << ch;
@@ -236,6 +242,8 @@ void drawSquareFilled(const int size, const char ch){
   * @return No return value
  */
 void drawRectangle(const int height, const int length, const char ch, const bool filled){
+    assert(height > 0 && length > 0);
+    
     // Temporary Variables
     char tempAns;
     
@@ -280,6 +288,8 @@ void drawRectangle(const int height, const int length, const char ch, const bool
   * @return No return value
  */
 void drawRectangleFilled(const int height, const int length, const char ch){
+    assert(height > 0 && length > 0);
+    
     for(int i = 0; i < height; i++) {
         for(int j = 0; j < length; j++) {
             cout << ch;
@@ -296,6 +306,8 @@ void drawRectangleFilled(const int height, const int length, const char ch){
   * @return It will return <code>true</code> if both the numbers are >0 and <code>false</code> if either number is <0
  */
 bool dataValidation(const int num1, const int num2) {
+    assert(num1 > 0 && num2 > 0);
+    
     if(num1 > 0 && num2 > 0) return true;
     
     return false;
@@ -307,6 +319,8 @@ bool dataValidation(const int num1, const int num2) {
   * @return No return value
  */
 void drawShapes(const int numShapes) {
+    assert(numShapes > 0 && numShapes <= 10);
+    
     // ShapeType: Generate a number from 0 to 5 and add 1 (so range will become 1-6)
     // ShapeLength && ShapeHeight: Have an offset of 5 and generate a random number between 0-15. Range will become 5-20
     // ShapeCharacter: Have an offset of 33 and generate a random number between 0 and 93
